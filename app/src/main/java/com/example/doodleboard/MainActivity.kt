@@ -21,39 +21,39 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
 
-        var redBtn = findViewById<ImageButton>(R.id.redColor);
-        var blueBtn = findViewById<ImageButton>(R.id.blueColor);
-        var blackBtn = findViewById<ImageButton>(R.id.blackColor);
-        var eraserBtn = findViewById<ImageButton>(R.id.whiteColor);
+        val redBtn = findViewById<ImageButton>(R.id.redColor)
+        val blueBtn = findViewById<ImageButton>(R.id.blueColor)
+        val blackBtn = findViewById<ImageButton>(R.id.blackColor)
+        val eraserBtn = findViewById<ImageButton>(R.id.whiteColor)
 
         redBtn.setOnClickListener {
-            Toast.makeText(this, "Clicked Red", Toast.LENGTH_SHORT).show();
-            stylusNib.color = Color.RED;
-            currentColor(stylusNib.color);
+            Toast.makeText(this, "Clicked Red", Toast.LENGTH_SHORT).show()
+            stylusNib.color = Color.RED
+            currentColor(stylusNib.color)
         }
 
         blueBtn.setOnClickListener {
             Toast.makeText(this, "Clicked Blue", Toast.LENGTH_SHORT).show()
-            stylusNib.color = Color.BLUE;
-            currentColor(stylusNib.color);
+            stylusNib.color = Color.BLUE
+            currentColor(stylusNib.color)
         }
 
         blackBtn.setOnClickListener {
             Toast.makeText(this, "Clicked Black", Toast.LENGTH_SHORT).show()
-            stylusNib.color = Color.BLACK;
-            currentColor(stylusNib.color);
+            stylusNib.color = Color.BLACK
+            currentColor(stylusNib.color)
         }
 
         eraserBtn.setOnClickListener {
             Toast.makeText(this, "Clicked Eraser", Toast.LENGTH_SHORT).show()
-            stylusNib.color = Color.WHITE;
-            currentColor(stylusNib.color);
+            stylusNib.color = Color.WHITE
+            currentColor(stylusNib.color)
         }
     }
 
     private fun currentColor(color: Int) {
-        currentInk = color;
-        path = Path();
+        currentInk = color
+        path = Path()
     }
 
 }

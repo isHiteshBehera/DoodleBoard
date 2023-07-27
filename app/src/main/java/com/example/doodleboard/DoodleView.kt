@@ -14,7 +14,7 @@ import com.example.doodleboard.MainActivity.Companion.stylusNib
 
 class DoodleView: View {
 
-    var params : ViewGroup.LayoutParams? = null;
+    private var params : ViewGroup.LayoutParams? = null
 
     companion object {
         var pathList = ArrayList<Path>()
@@ -33,41 +33,41 @@ class DoodleView: View {
     }
 
     private fun init() {
-        stylusNib.isAntiAlias = true;
-        stylusNib.color = currentInk;
-        stylusNib.style = Paint.Style.STROKE;
-        stylusNib.strokeJoin = Paint.Join.ROUND;
-        stylusNib.strokeWidth = 8f;
+        stylusNib.isAntiAlias = true
+        stylusNib.color = currentInk
+        stylusNib.style = Paint.Style.STROKE
+        stylusNib.strokeJoin = Paint.Join.ROUND
+        stylusNib.strokeWidth = 8f
 
-        params = ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        params = ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
 
     }
 
     override fun onTouchEvent(event: MotionEvent): Boolean {
-        var x = event.x;
-        var y = event.y;
+        val x = event.x
+        val y = event.y
 
         when (event.action) {
             MotionEvent.ACTION_DOWN -> {
-                path.moveTo(x, y);
+                path.moveTo(x, y)
                 return true
             }
             MotionEvent.ACTION_MOVE -> {
-                path.lineTo(x, y);
-                pathList.add(path);
-                colorList.add(currentInk);
+                path.lineTo(x, y)
+                pathList.add(path)
+                colorList.add(currentInk)
             }
             else -> return false
         }
-        postInvalidate();
+        postInvalidate()
         return false
     }
 
     override fun onDrawForeground(canvas: Canvas) {
         for (i in pathList.indices) {
-            stylusNib.setColor(colorList[i]);
-            canvas.drawPath(pathList[i], stylusNib);
-            invalidate();
+            stylusNib.setColor(colorList[i])
+            canvas.drawPath(pathList[i], stylusNib)
+            invalidate()
         }
     }
 
